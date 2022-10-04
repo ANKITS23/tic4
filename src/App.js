@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Board from './Board';
+import "./App.css";
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+	const [reset, setReset] = useState(false);
+
+
+	const [winner, setWinner] = useState('');
+
+
+	const resetBoard = () => {
+		setReset(true);
+	}
+
+	return (
+  <>
+		<div className="app">
+			
+		
+			<Board reset={reset} setReset={setReset} winner={winner}
+				setWinner={setWinner} />
+		<div className='winner-text'>{winner}</div>
+				<button className='reset' onClick={() => resetBoard()}>
+					Reset 
+				</button>
+			</div>
+		
+    </>
+	);
 }
 
 export default App;
