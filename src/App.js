@@ -2,14 +2,11 @@
 import Board from './Board';
 import "./App.css";
 import { useState } from 'react';
+import Board2 from './Board2';
 
 function App() {
-
-
 	const [reset, setReset] = useState(false);
-
-
-	const [winner, setWinner] = useState('');
+	const [winner, setWinner] = useState(false);
 
 
 	const resetBoard = () => {
@@ -19,16 +16,13 @@ function App() {
 	return (
   <>
 		<div className="app">
-			
-		
-			<Board reset={reset} setReset={setReset} winner={winner}
+			<Board2 reset={reset} setReset={setReset} winner={winner}
 				setWinner={setWinner} />
 		<div className='winner-text'>{winner}</div>
 				<button className='reset' onClick={() => resetBoard()}>
-					Reset 
+					<a href='/'>Reset</a>
 				</button>
-			</div>
-		
+			</div>	
     </>
 	);
 }
